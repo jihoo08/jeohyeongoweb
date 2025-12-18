@@ -424,6 +424,13 @@ def show_student_features(token, user_info):
     st.subheader("📊 진행 상황")
     st.progress(progress)
     st.write(f"**{stamp_count} / {total_stamps} 스탬프 획득** ({progress:.1%})")
+
+    # ✅ 15개 이상 달성 시 축하 메시지
+    if stamp_count >= 15:
+        st.success("""
+        🎉 **축하합니다! 스탬프 15개 달성!**  
+        JH 굿즈 양말을 선물로 드립니다. (다음주 증정 예정)
+        """)
     
     with st.expander("👤 내 프로필 정보"):
         st.write(f"**표시 이름:** {user_info.get('display_name', '이름 없음')}")
